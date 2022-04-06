@@ -27,26 +27,16 @@
 						<aside class="widget-area">
                             <div class="widget">
                                 <ul class="nav-list">
-                                    <li class="active">
-										<a href="#">Architecture & Building</a>
-										<i class="flaticon-play-button"></i>
-                                    </li>
+                                    @if (isset($otherservices) && $otherservices->count() > 0)
+                                    @foreach ($otherservices as $otherservice)
                                     <li>
-										<a href="#">Building Construction</a>
+										<a href="{{ route('front.servicessingle', $otherservice->slug) }}">{{ $otherservice->title }}</a>
 										<i class="flaticon-play-button"></i>
                                     </li>
-                                    <li>
-										<a href="#">Painting & Tiling</a>
-										<i class="flaticon-play-button"></i>
-                                    </li>
-                                    <li>
-										<a href="#">Building Consultants</a>
-										<i class="flaticon-play-button"></i>
-									</li>
-									<li>
-										<a href="#">Design Planning</a>
-										<i class="flaticon-play-button"></i>
-                                    </li>
+                                    @endforeach
+                                    @endif
+
+
                                 </ul>
 							</div>
 
@@ -55,14 +45,8 @@
 					<div class="col-lg-8 col-md-12">
 						<div class="service-details-desc">
 							<div class="content">
-                                <h2>Building <span>Multistoried</span> Is Really A Challenging Work</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-                                    lacus vel facilisis.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                                </p>
+                                <h2>{{ $service->title }}</h2>
+                                {!! $service->post_content !!}
 							</div>
 							<div class="services-area">
 								<div class="row align-items-center">
@@ -86,16 +70,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="content">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-                                    lacus vel facilisis do eiusmod.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                                </p>
-							</div>
-                           
+
                         </div>
 					</div>
 				</div>

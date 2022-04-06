@@ -427,7 +427,7 @@ class IndexController extends Controller
     {
         $service = $this->cms->getgobalPostBySlug($slug);
 
-        $otherservices = $this->cms->getGlobalPostByID(3)->where('slug', '!=', $slug);
+        $otherservices = $this->cms->getGlobalPostByID(7)->where('slug', '!=', $slug);
         return view('frontEnd.pages.single.servicesSingle', compact('service','otherservices'));
     }
 
