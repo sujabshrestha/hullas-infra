@@ -6,6 +6,8 @@ use App\AppliedCareer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\StoreContactRequest;
 use App\Jobs\ContactJob;
+use App\Mail\CareerAppliedMail;
+use App\Mail\CareerAppliedMailForCompany;
 use App\Mail\ContactMail;
 use App\Mail\ContactMailForCompany;
 use App\Model\Admission;
@@ -243,6 +245,19 @@ class IndexController extends Controller
         $appliedcareer->phone =  $request->phone;
         $appliedcareer->cv =  fileupload('upload/cirriculumvitae/', $request->cv) ?? "";
         $appliedcareer->save();
+
+        $details = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'cv' =>  $appliedcareer->cv
+        ];
+
+        $mail = new CareerAppliedMail($details);
+        Mail::to($request->email)->send($mail);
+
+        $mail = new CareerAppliedMailForCompany($details);
+        Mail::to($request->email)->send($mail);
 
         return response()->json([
             'success' => 'Successfully Submitted'

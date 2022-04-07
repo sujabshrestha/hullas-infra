@@ -79,11 +79,7 @@
     <div class="modal-dialog">
 
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+
         <div class="modal-body contact-area">
             <div class="contact-form">
                 <div class="content">
@@ -106,7 +102,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Cirriculum Vitae</label>
-                    <input type="file" name="cv" class="form-control" id="cv">
+                    <input type="file" name="cv"  id="cv">
                 </div>
                 <div class="form-group text-right">
                     <button class="btn btn-primary">Submit</button>
@@ -156,7 +152,8 @@
                 beforeSend: function (data) {
                 },
                 success: function (data) {
-                    alert(data.success);
+                    $('.modal').modal('hide');
+                    toastr.success(data.message);
                 },
                 error: function (err) {
                     if (err.status == 422) {

@@ -30,21 +30,21 @@
                         <i class='flaticon-smartphone'></i>
                         <div class="info-content">
                             <p>call us</p>
-                            <a href="tel:+14854560102">(009) 01361246741 </a>
+                            <a href="tel:+14854560102">{{ getSiteSetting('primary_phone') ?? '' }}</a>
                         </div>
                     </div>
                     <div class="info-item" style="background: url('{{ asset('front/assets/images/contact/item-bg-2.jpg') }}')">
                         <i class='flaticon-email'></i>
                         <div class="info-content">
                             <p>mail us</p>
-                            <a href="mailto:hello@constik.com">hello@constik.com</a>
+                            <a href="mailto:hello@constik.com">{{ getSiteSetting('primary_email') ?? '' }}</a>
                         </div>
                     </div>
                     <div class="info-item" style="background: url('{{ asset('front/assets/images/contact/item-bg-3.jpg') }}')">
                         <i class='flaticon-address'></i>
                         <div class="info-content">
                             <p>visit us</p>
-                            <a href="#">32,Wales Street,USA</a>
+                            <a href="#">{{ getSiteSetting('address') ?? '' }}</a>
                         </div>
                     </div>
                 </div>
