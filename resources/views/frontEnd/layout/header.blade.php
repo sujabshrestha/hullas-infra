@@ -112,14 +112,17 @@
                         </a>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="{{ url('/') }}" class="nav-link active toggle">Home</a>
+                                <a href="{{ url('/') }}" class="nav-link">Home</a>
 
 
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('front.about-us') }}" class="nav-link toggle">About Us</a>
+                                <a href="#" class="nav-link toggle">About Us</a>
                                 <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{{ route('front.about-us') }}" class="nav-link">Company Profile</a>
+                                    </li>
                                     <li class="nav-item">
                                         <a href="{{ route('front.allcasestudies') }}" class="nav-link">Case Study</a>
                                     </li>
@@ -137,11 +140,11 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('front.allservices') }}" class="nav-link toggle">Services</a>
+                                <a href="{{ route('front.allservices') }}" class="nav-link">Services</a>
 
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('front.allproducts') }}" class="nav-link toggle">Products</a>
+                                <a href="{{ route('front.allproducts') }}" class="nav-link">Products</a>
 
                             </li>
                             <li class="nav-item"><a href="#" class="nav-link toggle">Resources</a>

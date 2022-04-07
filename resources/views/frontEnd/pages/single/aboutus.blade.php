@@ -37,19 +37,54 @@
                 <div class="about-content">
                     <h2 class="color-secondary">We Build Everything As Your <span>Dream</span></h2>
                     {!! getSiteSetting('about_description') ?? '' !!}
-                    <div class="about-item-list">
-                        <ul>
-                            <li><i class="flaticon-play-button"></i>100% Satisfaction Guarantee.</li>
-                            <li><i class="flaticon-play-button"></i>  Accurate Testing Processes.</li>
-                            <li><i class="flaticon-play-button"></i>  35+ Years Of Experience. </li>
-                            <li><i class="flaticon-play-button"></i>  Strong Building Materials.</li>
-                            <li><i class="flaticon-play-button"></i>  Eco-Friendly Build Materials.</li>
-                        </ul>
-                    </div>
 
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!-- start team section -->
+<section class="team-members-section ptb-100">
+    <div class="container">
+        <h3>Team Members</h3>
+        <hr>
+        <div class="row">
+
+            @if (isset($teammembers) && !empty($teammembers))
+            @foreach ($teammembers as $teammember)
+            <div class="col-lg-4 col-md-6">
+                <div class="team-item">
+                    <div class="image">
+                        <img src="{{ asset($teammember->image)  ?? ''}}" style="height: 200px; width:100%;" alt="Demo Image">
+                    </div>
+                    <div class="content">
+                        <h3><a href="#">{{ $teammember->title }}</a></h3>
+                        <span>{{ $teammember->designation }}</span>
+                    </div>
+                    <div class="overlay-content">
+                        <div class="social-link">
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-tumblr"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            @endif
+
+            <div class="col-lg-12 col-md-12">
+                <div class="pagination text-center">
+                    <a href="#" class="prev page-numbers"><i class="fas fa-angle-left"></i></a>
+                    <span class="page-numbers current" aria-current="page">1</span>
+                    <a href="#" class="page-numbers">2</a>
+                    <a href="#" class="page-numbers">3</a>
+                    <a href="#" class="page-numbers">4</a>
+                    <a href="#" class="next page-numbers"><i class="fas fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end team section -->
 @endsection

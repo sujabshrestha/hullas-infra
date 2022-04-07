@@ -60,11 +60,22 @@
                         <h2>{{ $blog->title }}</h2>
                         {!! $blog->post_content !!}
                     </div>
+
+                    <div class="comments-area">
+                        <h3 class="sub-title">comments (03)</h3>
+                        <ol class="comment-list">
+                            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="2"></div>
+
+                        </ol>
+                    </div>
                 </div>
+
+
             </div>
         </div>
     </div>
 </div>
-<!-- end blog details area -->
+<hr>
 
+<!-- end blog details area -->
 @endsection

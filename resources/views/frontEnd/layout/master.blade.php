@@ -30,6 +30,8 @@
         <!-- favicon -->
         <link rel="icon" href="{{ asset('front/assets/img/favicon.png') }}" type="image/png"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0&appId=1116107258874367&autoLogAppEvents=1" nonce="siaUl2kJ"></script>
     </head>
     <body>
 

@@ -107,7 +107,11 @@ class IndexController extends Controller
 
     public function about()
     {
-        return view('frontEnd.pages.single.aboutus');
+        $teammembers = $this->cms->getGlobalPostByID(11);
+        foreach($teammembers as $teammember){
+            $teammember->designation = $this->cms->getGlobalPostMetaByKey($teammember, 'designation');
+        }
+        return view('frontEnd.pages.single.aboutus',compact('teammembers'));
     }
 
     public function units($slug)
