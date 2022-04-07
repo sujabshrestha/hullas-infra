@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\AppliedCareer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Contact\StoreContactRequest;
 use App\Jobs\ContactJob;
@@ -167,10 +168,18 @@ class IndexController extends Controller
     }
 
     public function allproducts(){
+
         $productCategories = $this->cms->getGlobalPostByID(9);
-        $products = $this->cms->getGlobalPostByID(10);
+        $products = $this->cms->getGlobalPostByID(10, 6);
+        // foreach ($products as $product) {
+        //     $category_meta = $this->cms->getGlobalPostMetaByKey($product, 'select-product-category');
+        //     if ($category_meta) {
+        //         $product->parent_category =  implode(" ", unserialize($category_meta));
+        //     }
+        // }
+
         return view('frontEnd.pages.allproducts',
-        compact('products'));
+        compact('products','productCategories'));
     }
 
 
@@ -178,12 +187,14 @@ class IndexController extends Controller
     {
         $productSingle = $this->cms->getgobalPostBySlug($slug);
 
+
+
         foreach($productSingle->postMetas as $product_meta){
             $productSingle->parent_category =  implode(" ", unserialize($product_meta->value));
 
         }
 
-        $posts = $this->cms->getGlobalPostByID(10, 4);
+        $posts = $this->cms->getGlobalPostByID(2, 5);
 
         // foreach ($products as $key => $product) {
         //     $category_meta = $this->cms->getGlobalPostMetaByKey($product, 'category');
@@ -221,6 +232,21 @@ class IndexController extends Controller
         $career = $this->cms->getgobalPostBySlug($slug);
         $posts = $this->cms->getGlobalPostByID(8, 5);
         return view('frontEnd.pages.single.careerSingle', compact('career', 'posts'));
+
+    }
+
+
+    public function applyNow(Request $request){
+        $appliedcareer = new AppliedCareer();
+        $appliedcareer->name =  $request->name;
+        $appliedcareer->email =  $request->email;
+        $appliedcareer->phone =  $request->phone;
+        $appliedcareer->cv =  fileupload('upload/cirriculumvitae/', $request->cv) ?? "";
+        $appliedcareer->save();
+
+        return response()->json([
+            'success' => 'Successfully Submitted'
+        ]);
 
     }
 
@@ -395,7 +421,13 @@ class IndexController extends Controller
         return view('frontEnd.pages.single.allcasestudies', compact('allcasestudies'));
     }
 
+    public function termsOfService(){
+        return view('frontEnd.pages.termsOfService');
+    }
 
+    public function privacyPolicy(){
+        return view('frontEnd.pages.privacyPolicy');
+    }
 
 
     public function offerandseminar()

@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Author: HiBootstrap, Category: Construction, Multipurpose, HTML, SASS, Bootstrap" />
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <!-- title -->
         <title>{{ getSiteSetting('title') ?? 'Hulas' }}</title>
         <!-- bootstrap CSS -->
@@ -47,7 +48,7 @@
      <!-- popper JS -->
      <script src="{{ asset('front/assets/js/popper.min.js') }}"></script>
      <!-- bootstrap JS -->
-     <script src="{{ asset('front/') }}assets/js/bootstrap.min.js"></script>
+     <script src="{{ asset('front/assets/js/bootstrap.min.js') }}"></script>
      <!-- nice select JS -->
      <script src="{{ asset('front/assets/js/jquery.nice-select.min.js') }}"></script>
      <!-- magnific popup JS -->
@@ -68,5 +69,6 @@
      <script src="{{ asset('front/assets/js/jquery.ajaxchimp.min.js') }}"></script>
      <!-- script JS -->
      <script src="{{ asset('front/assets/js/script.js') }}"></script>
+     @stack('scripts')
  </body>
 </html>

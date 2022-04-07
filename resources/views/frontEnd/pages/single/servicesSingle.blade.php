@@ -14,8 +14,9 @@
                 </div>
 			</div>
 			<div class="bg-image">
-				<img src="assets/img/page-title/service-details-bg.jpg" alt="Demo Image">
-			</div>
+                <img src="{{ asset('front/assets/images/about-bg.jpg') }}" alt="Demo Image">
+            </div>
+
         </div>
         <!-- end page title area -->
 
@@ -46,28 +47,16 @@
 						<div class="service-details-desc">
 							<div class="content">
                                 <h2>{{ $service->title }}</h2>
-                                {!! $service->post_content !!}
+                                {!! Str::limit(strip_tags($service->post_content), 240)  !!}
 							</div>
 							<div class="services-area">
 								<div class="row align-items-center">
-									<div class="col-lg-6">
+									<div class="col-lg-12">
 										<div class="image">
 											<img src="{{ asset($service->image) }}" alt="Demo Image">
 										</div>
 									</div>
-									<div class="col-lg-6 pl-0">
-										<div class="content">
-											<div class="item-list">
-												<ul>
-                                                    <li><i class="flaticon-play-button"></i> 100% Satisfaction Guarantee.</li>
-                                                    <li><i class="flaticon-play-button"></i> Accurate Testing Processes.</li>
-                                                    <li><i class="flaticon-play-button"></i> 35+ Years Of Experience. </li>
-                                                    <li><i class="flaticon-play-button"></i> Strong Building Materials.</li>
-                                                    <li><i class="flaticon-play-button"></i> Eco-Friendly Build Materials.</li>
-                                                </ul>
-											</div>
-										</div>
-									</div>
+
 								</div>
 							</div>
 

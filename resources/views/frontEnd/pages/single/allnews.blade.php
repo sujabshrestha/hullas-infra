@@ -13,7 +13,10 @@
                 </ul>
             </div>
         </div>
-  
+        <div class="bg-image">
+            <img src="{{ asset('front/assets/images/about-bg.jpg') }}" alt="Demo Image">
+        </div>
+
     </div>
     <!-- end page title area -->
 
@@ -27,17 +30,13 @@
                             <div class="blog-item-single">
                                 <div class="blog-item-img">
                                     <img src="{{ asset($news->image) }}" alt="Blog Image" />
-                                    <div class="tag">
-                                        <span>{{ $news->created_at->format('d') }}</span>
-                                        <span>{{ $news->created_at->format('M') }}</span>
-                                    </div>
                                     <div class="overlay-content">
                                         <a href="#"><i class="flaticon-add"></i></a>
                                     </div>
                                 </div>
                                 <div class="blog-item-content">
                                     <h3><a href="{{ route('front.newsSingle', $news->slug) }}">{{ $news->title }}</a></h3>
-                                    {!! $news->post_content !!}
+                                    {!! Str::limit(strip_tags($news->post_content), 70)  !!}
                                     <div class="cta-btn">
                                         <a href="{{ route('front.newsSingle', $news->slug) }}" class="read-more-btn"><i class="flaticon-play-button"></i> Read
                                             More</a>

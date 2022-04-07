@@ -13,7 +13,7 @@
 
 <!-- start best service section -->
 
-<section class="strong-service-section pt-100 pb-70">
+<section class="strong-service-section pt-100 pb-70" style="background-image: url(' {{ asset('front/assets/images/service-bg-1.jpg') }}    ">
     <div class="container">
         <div class="row no-wrap">
             <div class="col-lg-5 col-md-12">
@@ -81,30 +81,28 @@
 <section class="blog-section ptb-100 bg-secondary">
     <div class="container">
         <div class="section-title">
-            <h2>Read Our News To Have A Clear Knowledge About Us</h2>
+            <h2>Read Our Blogs To Have A Clear Knowledge About Us</h2>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="blog-slider owl-carousel">
-                    @if (isset($allnews) && !empty($allnews) )
-                    @foreach ($allnews as  $news)
+                    @if (isset($blogs) && !empty($blogs) )
+                    @foreach ($blogs as  $blog)
                     <div class="slider-item">
                         <div class="blog-item-single">
                             <div class="blog-item-img">
-                                <img src="{{ asset($news->image) }}" alt="Blog Image" />
-                                <div class="tag">
-                                    <span>{{ $news->created_at->format('d') }}</span>
-                                    <span>{{ $news->created_at->format('M') }}</span>
-                                </div>
+                                <img src="{{ asset($blog->image) }}" style="
+                                height: auto;
+                                object-fit: cover;" alt="Blog Image" />
                                 <div class="overlay-content">
                                     <a href="blog-details.html"><i class="flaticon-add"></i></a>
                                 </div>
                             </div>
                             <div class="blog-item-content">
-                                <h3><a href="{{ route('front.newsSingle', $news->slug) }}">{{ $news->title }}</a></h3>
-                                {!! $news->post_content !!}
-                                <div class="cta-btn">
-                                    <a href="{{ route('front.newsSingle', $news->slug) }}" class="read-more-btn"><i class="flaticon-play-button"></i> Read
+                                <h3><a href="{{ route('front.newsSingle', $blog->slug) }}">{{ $blog->title }}</a></h3>
+                                {!! Str::limit(strip_tags($blog->post_content), 70)  !!}
+                                <div class="cta-btn mt-2">
+                                    <a href="{{ route('front.newsSingle', $blog->slug) }}" class="read-more-btn"><i class="flaticon-play-button"></i> Read
                                         More</a>
                                 </div>
                             </div>
@@ -114,7 +112,7 @@
                     @endif
                 </div>
                 <div class="cta-btn text-center">
-                    <a href="{{ route('front.allnews') }}" class="primary-btn">Explore All News</a>
+                    <a href="{{ route('front.allblogs') }}" class="primary-btn">Explore All BLogs</a>
                 </div>
             </div>
         </div>
@@ -123,7 +121,7 @@
 
 
 <!-- start quote section -->
-<section class="quote-section pt-100 pb-70">
+<section class="quote-section pt-100 pb-70" style="background-image: url('{{ asset('front/assets/images/testimonial-bg.jpg') }}')">
     <div class="container">
         <div class="row align-items-end">
             <div class="col-lg-6">
@@ -187,7 +185,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="image">
-                    <img src="{{ getSiteSetting('logo') }}" alt="Demo Image">
+                    <img src="{{ asset('front/assets/images/quote-img.png') }}" alt="Demo Image">
                 </div>
             </div>
         </div>

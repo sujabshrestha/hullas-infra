@@ -18,12 +18,40 @@
                 </ul>
             </div>
         </div>
+        <div class="bg-image">
+            <img src="{{ asset('front/assets/images/about-bg.jpg') }}" alt="Demo Image">
+        </div>
 
     </div>
     <!-- end page title area -->
 
-    <!-- start blog area -->
-    <div class="blog-grid ptb-100">
+    <section class="best-service-section service-two ptb-100">
+        <div class="container">
+            <div class="section-title style-two">
+                <h2 class="color-secondary">We Provide Best <span>Products</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="row">
+                @if (isset($productCategories) && !empty($productCategories))
+                @foreach ($productCategories as $category)
+                <div class="col-lg-4">
+                    <div class="service-item-single">
+                        <img src="{{ asset($category->image) }} " alt="Icon">
+                        <h3><a href="services-details.html">{{ $category->title }}</a></h3>
+                        {{-- {!! Str::limit(strip_tags($category->post_content), 20, '...')  !!} --}}
+                        <div class="cta-btn">
+                            <a href="{{ route('front.productFromCategory', $category->id) }}" class="read-more-btn"><i class="flaticon-play-button"></i> Read More</a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                @endif
+            </div>
+
+        </div>
+    </section>
+
+    {{-- <div class="blog-grid ptb-100">
         <div class="container">
 
             <div class="row justify-content-center">
@@ -61,52 +89,8 @@
             </div>
         </div>
     </div>
-    <!-- end blog area -->
-    <!-- Page title -->
-    <!-- /.page-title -->
+  --}}
 
-    {{-- <section class="flat-row portfolio-post" id="work">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="portfolio-filter style1">
-
-                        @if ($productCategories)
-                            <li class="active"><a data-filter="*" href="#">All Products</a></li>
-                            @foreach ($productCategories as $category)
-                                <li><a data-filter=".{{ $category->id }}" href="#">{{ $category->title }}</a></li>
-                            @endforeach
-                        @endif
-                    </ul><!-- /.project-filter -->
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="flat-portfolio v4 style1 grid-3columns">
-                        <div class="portfolio-wrap clearfix">
-                            @if ($products)
-                                @foreach ($products as $product)
-                                    <div class="item {{ $product->parent_category }}">
-                                        <div class="featured-images">
-                                            {!! gobalPostImage($product->id, 'thumbnail') !!}
-                                            <h3 class="project-title">{{ $product->title }}</h3>
-                                            <a class="view-detail" href="{{ route('front.product.single', $product->slug) }}">View More</a>
-                                            <div class="overlay">
-                                            </div>
-                                        </div><!-- /.featured-images -->
-                                    </div>
-                                @endforeach
-                            @endif
-                        </div><!-- /.portfolio-wrap -->
-                    </div><!-- /.flat-portfolio -->
-                </div>
-            </div>
-        </div>
-    </section> --}}
 
 
 @endsection

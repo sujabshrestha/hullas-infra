@@ -126,6 +126,12 @@
                                     <li class="nav-item">
                                         <a href="{{ route('front.career') }}" class="nav-link">Career</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('front.privacyPolicy') }}" class="nav-link">Privacy Policy</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('front.termsOfService') }}" class="nav-link">Terms Of Service</a>
+                                    </li>
                                 </ul>
 
                             </li>
@@ -160,7 +166,7 @@
                         </ul>
 
                         <div class="side-option ml-auto">
-                            <div class="item">
+                            {{-- <div class="item">
                                 <div class="language">
                                     <a href="#language" class="language-link">
                                         Language <i class="fas fa-sort-down"></i></a>
@@ -186,7 +192,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="item">
                                 <div class="search">

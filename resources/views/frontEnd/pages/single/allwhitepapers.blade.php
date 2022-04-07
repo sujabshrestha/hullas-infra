@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="bg-image">
-            <img src="assets/img/page-title/blog-grid-bg.jpg" alt="Demo Image">
+            <img src="{{ asset('front/assets/images/about-bg.jpg') }}" alt="Demo Image">
         </div>
     </div>
     <!-- end page title area -->
@@ -28,19 +28,16 @@
                         <div class="col-lg-4 col-md-6  col-sm-6 col-sm-6">
                             <div class="blog-item-single">
                                 <div class="blog-item-img">
-                                    <img src="{{ asset($whitepapers->image) }}" alt="Blog Image" />
-                                    <div class="tag">
-                                        <span>{{ $whitepapers->created_at->format('d') }}</span>
-                                        <span>{{ $whitepapers->created_at->format('M') }}</span>
-                                    </div>
+                                    <img src="{{ asset($whitepapers->image) }}" style="200px;" alt="Blog Image" />
+
                                     <div class="overlay-content">
                                         <a href="#"><i class="flaticon-add"></i></a>
                                     </div>
                                 </div>
                                 <div class="blog-item-content">
                                     <h3><a href="{{ route('front.whitepaperSingle', $whitepapers->slug) }}">{{ $whitepapers->title }}</a></h3>
-                                    {!! $whitepapers->post_content !!}
-                                    <div class="cta-btn">
+                                    {!! Str::limit(strip_tags($whitepapers->post_content), 70, '...')  !!}
+                                    <div class="cta-btn mt-2">
                                         <a href="{{ route('front.whitepaperSingle', $whitepapers->slug) }}" class="read-more-btn"><i class="flaticon-play-button"></i> Read
                                             More</a>
                                     </div>
