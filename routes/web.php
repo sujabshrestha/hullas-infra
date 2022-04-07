@@ -128,6 +128,17 @@ Route::group(
         Route::get('/testpreparaionsingle/{slug}', 'IndexController@testpreparationsingle')->name('preparationsingle');
         // Study
         Route::get('/studysingle/{slug}', 'IndexController@studysingle')->name('studysingle');
+
+
+
+        Route::get('/terms-of-service', 'IndexController@termsOfService')->name('termsOfService');
+
+        Route::get('/privacypolicy', 'IndexController@privacyPolicy')->name('privacyPolicy');
+
+        Route::post('/apply-now', 'IndexController@applyNow')->name('applyNow');
+
+
+
     }
 );
 

@@ -183,6 +183,55 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-12">
+                        <h2 style="margin-left:30%; ">Privacy Policy</h2>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Title</label>
+                                <input type="text" name="privacy_policy_title"
+                                    value="{{ getSiteSetting('privacy_policy_title') ?? '' }}" placeholder="Enter title" class="form-control"
+                                    id="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Description</label>
+                                <textarea name="privacy_policy_description" id="" class="summernote">
+                                    {!! getSiteSetting('privacy_policy_description') ?? '' !!}
+                                </textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12">
+                        <h2 style="margin-left:30%; ">Terms Of Service</h2>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Title</label>
+                                <input type="text" name="termsofservice_title" placeholder="Enter title "
+                                    value="{{ getSiteSetting('termsofservice_title') ?? '' }}" class="form-control"
+                                    id="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Description</label>
+                                <textarea name="termsofservice_description" id="" class="summernote">
+                                    {!! getSiteSetting('termsofservice_description') ?? '' !!}
+                                </textarea>
+                            </div>
+                        </div>
+
+                    </div>
                     {{-- <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -400,6 +449,7 @@
     <script src="{{ asset('cork/plugins/file-upload/file-upload-with-preview.min.js') }}"></script>
 
     <script>
+
         //First upload .
         @if (getSiteSetting('logo'))
             var importedBaseImage = "{{ asset(getSiteSetting('logo')) }}"

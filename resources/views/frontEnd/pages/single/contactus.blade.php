@@ -13,6 +13,9 @@
             </ul>
         </div>
     </div>
+    <div class="bg-image">
+        <img src="{{ asset('front/assets/images/about-bg.jpg') }}" alt="Demo Image">
+    </div>
 
 </div>
 <!-- end page title area -->
@@ -23,21 +26,21 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="contact-info">
-                    <div class="info-item">
+                    <div class="info-item" style="background: url('{{ asset('front/assets/images/contact/item-bg-1.jpg') }}')">
                         <i class='flaticon-smartphone'></i>
                         <div class="info-content">
                             <p>call us</p>
                             <a href="tel:+14854560102">(009) 01361246741 </a>
                         </div>
                     </div>
-                    <div class="info-item">
+                    <div class="info-item" style="background: url('{{ asset('front/assets/images/contact/item-bg-2.jpg') }}')">
                         <i class='flaticon-email'></i>
                         <div class="info-content">
                             <p>mail us</p>
                             <a href="mailto:hello@constik.com">hello@constik.com</a>
                         </div>
                     </div>
-                    <div class="info-item">
+                    <div class="info-item" style="background: url('{{ asset('front/assets/images/contact/item-bg-3.jpg') }}')">
                         <i class='flaticon-address'></i>
                         <div class="info-content">
                             <p>visit us</p>

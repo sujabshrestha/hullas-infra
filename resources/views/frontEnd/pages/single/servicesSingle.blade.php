@@ -14,8 +14,9 @@
                 </div>
 			</div>
 			<div class="bg-image">
-				<img src="assets/img/page-title/service-details-bg.jpg" alt="Demo Image">
-			</div>
+                <img src="{{ asset('front/assets/images/about-bg.jpg') }}" alt="Demo Image">
+            </div>
+
         </div>
         <!-- end page title area -->
 
@@ -27,26 +28,16 @@
 						<aside class="widget-area">
                             <div class="widget">
                                 <ul class="nav-list">
-                                    <li class="active">
-										<a href="#">Architecture & Building</a>
-										<i class="flaticon-play-button"></i>
-                                    </li>
+                                    @if (isset($otherservices) && $otherservices->count() > 0)
+                                    @foreach ($otherservices as $otherservice)
                                     <li>
-										<a href="#">Building Construction</a>
+										<a href="{{ route('front.servicessingle', $otherservice->slug) }}">{{ $otherservice->title }}</a>
 										<i class="flaticon-play-button"></i>
                                     </li>
-                                    <li>
-										<a href="#">Painting & Tiling</a>
-										<i class="flaticon-play-button"></i>
-                                    </li>
-                                    <li>
-										<a href="#">Building Consultants</a>
-										<i class="flaticon-play-button"></i>
-									</li>
-									<li>
-										<a href="#">Design Planning</a>
-										<i class="flaticon-play-button"></i>
-                                    </li>
+                                    @endforeach
+                                    @endif
+
+
                                 </ul>
 							</div>
 
@@ -55,47 +46,20 @@
 					<div class="col-lg-8 col-md-12">
 						<div class="service-details-desc">
 							<div class="content">
-                                <h2>Building <span>Multistoried</span> Is Really A Challenging Work</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-                                    lacus vel facilisis.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                                </p>
+                                <h2>{{ $service->title }}</h2>
+                                {!! Str::limit(strip_tags($service->post_content), 240)  !!}
 							</div>
 							<div class="services-area">
 								<div class="row align-items-center">
-									<div class="col-lg-6">
+									<div class="col-lg-12">
 										<div class="image">
 											<img src="{{ asset($service->image) }}" alt="Demo Image">
 										</div>
 									</div>
-									<div class="col-lg-6 pl-0">
-										<div class="content">
-											<div class="item-list">
-												<ul>
-                                                    <li><i class="flaticon-play-button"></i> 100% Satisfaction Guarantee.</li>
-                                                    <li><i class="flaticon-play-button"></i> Accurate Testing Processes.</li>
-                                                    <li><i class="flaticon-play-button"></i> 35+ Years Of Experience. </li>
-                                                    <li><i class="flaticon-play-button"></i> Strong Building Materials.</li>
-                                                    <li><i class="flaticon-play-button"></i> Eco-Friendly Build Materials.</li>
-                                                </ul>
-											</div>
-										</div>
-									</div>
+
 								</div>
 							</div>
-							<div class="content">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-                                    lacus vel facilisis do eiusmod.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                                </p>
-							</div>
-                           
+
                         </div>
 					</div>
 				</div>

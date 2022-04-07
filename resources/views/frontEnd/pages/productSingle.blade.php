@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="bg-image">
-        <img src="assets/img/page-title/blog-details-bg.jpg" alt="Demo Image">
+        <img src="{{ asset('front/assets/images/about-bg.jpg') }}" alt="Demo Image">
     </div>
 </div>
 <!-- end page title area -->
@@ -27,11 +27,11 @@
                 <aside class="widget-area">
 
                     <div class="widget widget-article">
-                        <h3 class="sub-title">Recent Post</h3>
+                        <h3 class="sub-title">Recent Blogs</h3>
 
                         @if (isset($posts) && !empty($posts))
                         @foreach ($posts as $post)
-                        @if ($post->id != $productSingle->id)
+
 
 
                         <article class="article-item">
@@ -40,11 +40,10 @@
                             </a>
                             <div class="info">
                                 <h6 class="title">
-                                    <a href="{{ route('front.productSingle', $post->slug) }}">{{ $post->title }}</a>
+                                    <a href="{{ route('front.blogSingle', $post->slug) }}">{{ $post->title }}</a>
                                 </h6>
                             </div>
                         </article>
-                        @endif
                         @endforeach
                         @endif
                     </div>
@@ -55,9 +54,9 @@
                     <div class="image">
                         <img src="{{ asset($productSingle->image) }}" alt="image" />
                     </div>
-                    <ul class="post-meta">
+                    {{-- <ul class="post-meta">
                         <li><a href="#">{{ $productSingle->created_at->format('d M, Y') }}</a></li>
-                    </ul>
+                    </ul> --}}
                     <div class="content">
                         <h2>{{ $productSingle->title }}</h2>
                         {!! $productSingle->post_content !!}

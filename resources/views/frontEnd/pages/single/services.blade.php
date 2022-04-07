@@ -14,8 +14,9 @@
         </div>
     </div>
     <div class="bg-image">
-        <img src="assets/img/page-title/service-grid-bg.jpg" alt="Demo Image">
+        <img src="{{ asset('front/assets/images/about-bg.jpg') }}" alt="Demo Image">
     </div>
+
 </div>
 <!-- end page title area -->
 
@@ -31,9 +32,8 @@
             @foreach ($ourservices as $ourservice)
             <div class="col-lg-4">
                 <div class="service-item-single">
-                    {!! $ourservice->icon !!}
+                    <img src="{{ asset($ourservice->image) ?? '' }}" style="height: 200px;"  alt="">
                     <h3><a href="{{ route('front.servicessingle', $ourservice->slug) }}">{{ $ourservice->title }}</a></h3>
-                    {!! $ourservice->post_content !!}
                     <div class="cta-btn">
                         <a href="{{ route('front.servicessingle', $ourservice->slug) }}" class="read-more-btn"><i class="flaticon-play-button"></i> Read More</a>
                     </div>

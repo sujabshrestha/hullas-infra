@@ -6,7 +6,7 @@
                 <div class="footer-widget">
                     <div class="navbar-brand">
                         <a href="index.html">
-                            <img src="{{ getSiteSetting('logo') ?? '' }}" alt="Logo" />
+                            <img src="{{ asset(getSiteSetting('logo')) ?? '' }}" alt="Logo" />
                         </a>
                     </div>
                     <p>You can dream, create, design, and build the most wonderful place in the world.</p>

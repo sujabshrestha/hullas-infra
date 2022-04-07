@@ -13,6 +13,9 @@
                 </ul>
             </div>
         </div>
+        <div class="bg-image">
+            <img src="{{ asset('front/assets/images/about-bg.jpg') }}" alt="Demo Image">
+        </div>
 
     </div>
     <!-- end page title area -->
@@ -26,19 +29,16 @@
                         <div class="col-lg-4 col-md-6  col-sm-6 col-sm-6">
                             <div class="blog-item-single">
                                 <div class="blog-item-img">
-                                    <img src="{{ asset($blog->image) }}" alt="Blog Image" />
-                                    <div class="tag">
-                                        <span>{{ $blog->created_at->format('d') }}</span>
-                                        <span>{{ $blog->created_at->format('M') }}</span>
-                                    </div>
+                                    <img src="{{ asset($blog->image) }}" style="height: 200px;" alt="Blog Image" />
+
                                     <div class="overlay-content">
                                         <a href="#"><i class="flaticon-add"></i></a>
                                     </div>
                                 </div>
                                 <div class="blog-item-content">
                                     <h3><a href="{{ route('front.blogSingle', $blog->slug) }}">{{ $blog->title }} </a></h3>
-                                    {!! $blog->post_content !!}
-                                    <div class="cta-btn">
+                                    {!! Str::limit(strip_tags($blog->post_content), 70)  !!}
+                                    <div class="cta-btn mt-2">
                                         <a href="{{ route('front.blogSingle', $blog->slug) }}" class="read-more-btn"><i class="flaticon-play-button"></i> Read
                                             More</a>
                                     </div>
