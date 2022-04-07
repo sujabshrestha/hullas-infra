@@ -16,17 +16,7 @@
             <div class="col-lg-5">
                 <div class="content">
                     {!! getSiteSetting('about_description') ?? '' !!}
-                    <div class="item-list">
-                        <ul>
-                            <li><i class="flaticon-play-button"></i>100% Satisfaction Guarantee.</li>
-                            <li><i class="flaticon-play-button"></i>  Accurate Testing Processes.</li>
-                            <li><i class="flaticon-play-button"></i>  35+ Years Of Experience. </li>
-                            <li><i class="flaticon-play-button"></i>  Strong Building Materials.</li>
-                            <li><i class="flaticon-play-button"></i>  Eco Friendly Build Materials.</li>
-                        </ul>
-                    </div>
-                    <p>You can dream, create, design and renovate the most place in the world. But it requires more peoples.</p>
-                    <div class="cta-btn">
+                    <div class="cta-btn mt-2">
                         <a href="{{ route('front.about-us') }}" class="primary-btn">About Us</a>
                     </div>
                 </div>

@@ -29,9 +29,9 @@
                         <div class="col-lg-4 col-md-6  col-sm-6 col-sm-6">
                             <div class="blog-item-single">
                                 <div class="blog-item-img">
-                                    <img src="{{ asset($news->image) }}" alt="Blog Image" />
+                                <img src="{{ asset($news->image) }}" alt="Blog Image" />
                                     <div class="overlay-content">
-                                        <a href="#"><i class="flaticon-add"></i></a>
+                                        <a href="{{ route('front.newsSingle', $news->slug) }}"><i class="flaticon-add"></i></a>
                                     </div>
                                 </div>
                                 <div class="blog-item-content">

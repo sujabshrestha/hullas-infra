@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="bg-image">
-        <img src="assets/img/page-title/service-grid-bg.jpg" alt="Demo Image">
+        <img src="{{ asset('front/assets/images/about-bg.jpg') }}" alt="Demo Image">
     </div>
 </div>
 <section id="about" class="about-section about-style-three pt-100 pb-70">
@@ -46,7 +46,7 @@
                             <li><i class="flaticon-play-button"></i>  Eco-Friendly Build Materials.</li>
                         </ul>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

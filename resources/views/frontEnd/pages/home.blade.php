@@ -92,17 +92,17 @@
                         <div class="blog-item-single">
                             <div class="blog-item-img">
                                 <img src="{{ asset($blog->image) }}" style="
-                                height: auto;
+                                height: 200px;
                                 object-fit: cover;" alt="Blog Image" />
                                 <div class="overlay-content">
-                                    <a href="blog-details.html"><i class="flaticon-add"></i></a>
+                                    <a href="{{ route('front.blogSingle', $blog->slug) }}"><i class="flaticon-add"></i></a>
                                 </div>
                             </div>
                             <div class="blog-item-content">
-                                <h3><a href="{{ route('front.newsSingle', $blog->slug) }}">{{ $blog->title }}</a></h3>
+                                <h3><a href="{{ route('front.blogSingle', $blog->slug) }}">{{ $blog->title }}</a></h3>
                                 {!! Str::limit(strip_tags($blog->post_content), 70)  !!}
                                 <div class="cta-btn mt-2">
-                                    <a href="{{ route('front.newsSingle', $blog->slug) }}" class="read-more-btn"><i class="flaticon-play-button"></i> Read
+                                    <a href="{{ route('front.blogSingle', $blog->slug) }}" class="read-more-btn"><i class="flaticon-play-button"></i> Read
                                         More</a>
                                 </div>
                             </div>
