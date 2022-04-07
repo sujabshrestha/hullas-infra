@@ -110,8 +110,17 @@ class IndexController extends Controller
         $teammembers = $this->cms->getGlobalPostByID(11);
         foreach($teammembers as $teammember){
             $teammember->designation = $this->cms->getGlobalPostMetaByKey($teammember, 'designation');
+            $teammember->facebooklink = $this->cms->getGlobalPostMetaByKey($teammember, 'facebook-link');
+            $teammember->twitterlink = $this->cms->getGlobalPostMetaByKey($teammember, 'twitter-link');
         }
-        return view('frontEnd.pages.single.aboutus',compact('teammembers'));
+
+        $goals = $this->cms->getGlobalPostByID(12);
+        foreach($goals as $goal){
+            $goal->icon = $this->cms->getGlobalPostMetaByKey($goal, 'icon');
+        }
+
+
+        return view('frontEnd.pages.single.aboutus',compact('teammembers','goals'));
     }
 
     public function units($slug)

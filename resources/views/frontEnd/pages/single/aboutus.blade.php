@@ -63,8 +63,8 @@
                     </div>
                     <div class="overlay-content">
                         <div class="social-link">
-                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $teammember->facebooklink }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $teammember->twitterlink }}" target="_blank"><i class="fab fa-twitter"></i></a>
                             <a href="#" target="_blank"><i class="fab fa-tumblr"></i></a>
                         </div>
                     </div>
@@ -73,18 +73,28 @@
             @endforeach
             @endif
 
-            <div class="col-lg-12 col-md-12">
-                <div class="pagination text-center">
-                    <a href="#" class="prev page-numbers"><i class="fas fa-angle-left"></i></a>
-                    <span class="page-numbers current" aria-current="page">1</span>
-                    <a href="#" class="page-numbers">2</a>
-                    <a href="#" class="page-numbers">3</a>
-                    <a href="#" class="page-numbers">4</a>
-                    <a href="#" class="next page-numbers"><i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
+
         </div>
     </div>
 </section>
 <!-- end team section -->
+
+<section class="about-services-section pt-100 pb-70" style="background: url('{{ asset('front/assets/images/service-bg-1.jpg') }}')">
+    <div class="container">
+        <div class="row">
+            @if (isset($goals) && !empty($goals))
+            @foreach ($goals as $goal)
+            <div class="col-lg-4">
+                <div class="service-item-single">
+                    {!! $goal->icon !!}
+                    <h3><a href="#">{{ $goal->title }}</a></h3>
+                    {!! $goal->post_content !!}
+                </div>
+            </div>
+            @endforeach
+            @endif
+
+        </div>
+    </div>
+</section>
 @endsection
