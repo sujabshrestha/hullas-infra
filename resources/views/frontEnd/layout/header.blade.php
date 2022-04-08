@@ -5,10 +5,10 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-12">
                     <div class="social-link">
-                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="{{ getSiteSetting('fb_link') ?? '' }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="{{ getSiteSetting('twitter_link') ?? '' }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="{{ getSiteSetting('youtube_link') ?? '' }} " target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="{{ getSiteSetting('insta_link') ?? '' }}" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-12 p-0">
